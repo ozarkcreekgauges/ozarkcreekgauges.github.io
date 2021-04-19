@@ -10,6 +10,9 @@ import random
 from scraper import scrape
 import time
 import threading
+
+import smtplib
+from email.message import EmailMessage
 app = Flask(__name__,static_folder='static', static_url_path='/static')
 
 #Global Variables for HTML placeholders
@@ -31,23 +34,22 @@ def background():
       loading = 'none'
 #Takes form data as a Dictionary and appends it to file
 def writeToFile(form):
-    with open("additions.txt",'a+') as file:
-        file.write("-----------------------------------\n")
-        file.write("Type: " + form['type'])
-        file.write("\n")
-        file.write("User Name: "+ form['name'])
-        file.write("\n")
-        file.write("Contact Info: " +form['contactinfo'])
-        file.write("\n")
-        file.write("River Name: "+ form['rivername'])
-        file.write("\n")
-        file.write("Gauge: "+ form['gauge2'])
-        file.write("\n")
-        file.write("Location: "+ form['location2'])
-        file.write("\n")
-        file.write("Message: "+ form['message'])
-        file.write("\n")
-        file.write("\n")
+    message = "Type: " + form['type'] + "\n " +
+        "User Name: "+ form['name'] + "\n" +
+        "Contact Info: " +form['contactinfo'] + "\n" +
+        "River Name: "+ form['rivername'] + "\n" +
+        "Gauge: "+ form['gauge2'] + "\n" +
+        "Location: "+ form['location2'] + "\n" +
+        "Message: "+ form['message'] + "\n"
+
+    msg = EmailMessage()
+    msg.set_content(message)
+    msg['Subject'] = form['rivername'] + "addition"
+    msg['From'] = "ozarkcreekgauges@gmail.com"
+    msg['To'] = "ozarkcreekgauges@gmail.com"
+    s = smtplib.SMTP('localhost')
+    s.send_message(msg)
+    s.quit()
 
 #Main/Table page
 @app.route('/',methods=["GET"])
