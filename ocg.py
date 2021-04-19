@@ -11,7 +11,7 @@ from scraper import scrape
 import time
 import threading
 
-import smtplib
+import smtplibm, ssl
 from email.message import EmailMessage
 app = Flask(__name__,static_folder='static', static_url_path='/static')
 
