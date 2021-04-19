@@ -1,1 +1,1 @@
-ocg:app
+web: gunicorn ocg:app
