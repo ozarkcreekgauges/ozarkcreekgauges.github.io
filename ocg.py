@@ -34,13 +34,8 @@ def background():
       loading = 'none'
 #Takes form data as a Dictionary and appends it to file
 def writeToFile(form):
-    message = "Type: " + form['type'] + "\n " +
-        "User Name: "+ form['name'] + "\n" +
-        "Contact Info: " +form['contactinfo'] + "\n" +
-        "River Name: "+ form['rivername'] + "\n" +
-        "Gauge: "+ form['gauge2'] + "\n" +
-        "Location: "+ form['location2'] + "\n" +
-        "Message: "+ form['message'] + "\n"
+    message = "Type: " + form['type'] + "\n " + "User Name: "+ form['name'] + "\n" + "Contact Info: " +form['contactinfo'] + "\n" + "River Name: "+ form['rivername'] + "\n" + "Gauge: "+ form['gauge2'] + "\n" + "Location: "+ form['location2'] + "\n" + "Message: "+ form['message'] + "\n"
+
 
     smtp_server = "smtp.gmail.com"
     port = 587  # For starttls
