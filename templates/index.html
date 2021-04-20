@@ -3706,17 +3706,17 @@
 						table.rows[i].cells[3].bgColor = "#c73636"
 						table.rows[i].cells[3].innerHTML = "X: " + level.toString()
 					}
-					else if((level > parseFloat(index[0])) && (level < parseFloat(index[1].trim())) ){
+					else if((level >= parseFloat(index[0])) && (level < parseFloat(index[1].trim())) ){
 						console.log("yellow")
 						table.rows[i].cells[3].bgColor = "#fff652"
 						table.rows[i].cells[3].innerHTML = "L: " + level.toString()
 					}
-					else if((level > parseFloat(index[1].trim()))  && (level < parseFloat(index[2].trim()))){
+					else if((level >= parseFloat(index[1].trim()))  && (level < parseFloat(index[2].trim()))){
 						console.log("green")
 						table.rows[i].cells[3].bgColor = "#34bf49"
 						table.rows[i].cells[3].innerHTML = "O: " + level.toString()
 					}
-					else if(level > parseFloat(index[2].trim())){
+					else if(level >= parseFloat(index[2].trim())){
 						console.log("blue")
 						table.rows[i].cells[3].bgColor = "#3467bf"
 						table.rows[i].cells[3].innerHTML = "H: " + level.toString()
